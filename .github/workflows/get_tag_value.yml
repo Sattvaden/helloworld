@@ -12,6 +12,6 @@ jobs:
       - name: Get Tag
         run: |
           RELEASE_VERSION=${GITHUB_REF:12}
-          ENVIRONMENT=${GITHUB_REF: 10:12}
+          ENVIRONMENT=${GITHUB_REF: 10:2}
           echo $RELEASE_VERSION
           echo $ENVIRONMENT
