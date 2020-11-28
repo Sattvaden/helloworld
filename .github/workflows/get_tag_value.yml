@@ -2,7 +2,8 @@ name: Get tag
 
 on:
   push:
-
+    tags:
+#      - '**v*.*.*'
 jobs:
   test:
     runs-on: ubuntu-latest
