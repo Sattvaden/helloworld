@@ -12,6 +12,6 @@ jobs:
       - name: Get Tag and Version
         run: |
           RELEASE_VERSION=${GITHUB_REF:10}
-          ENVIRONMENT=$RELEASE_VERSION|cut -d\- -f3
+          ENVIRONMENT=${GITHUB_REF:10}|cut -d\- -f3
           echo $RELEASE_VERSION
           echo $ENVIRONMENT
