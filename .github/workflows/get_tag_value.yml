@@ -1,18 +1,33 @@
 name: Get tag
 
+#on:
+#  push:
+#    tags:
+##      - '**v*.*.*'
+#jobs:
+#  test:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#      - name: Get Tag and Version
+#        run: |
+#          TAG=${GITHUB_REF:10}
+#          ENVIRONMENT=$(echo "$TAG"|cut -d\- -f3)
+#          RELEASE_VERSION=$(echo "$TAG"|cut -d\- -f4)
+#          echo $ENVIRONMENT
+#          echo $RELEASE_VERSION
 on:
   push:
-    tags:
-#      - '**v*.*.*'
+
 jobs:
-  test:
+  get:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Get Tag and Version
-        run: |
-          TAG=${GITHUB_REF:10}
-          ENVIRONMENT=$(echo "$TAG"|cut -d\- -f3)
-          RELEASE_VERSION=$(echo "$TAG"|cut -d\- -f4)
-          echo $ENVIRONMENT
-          echo $RELEASE_VERSION
+      -uses: action/checkout@v2
+      -name: Check file system
+       run: |
+        ls
+        cd src
+        ls
+        cd ..
+        ls
