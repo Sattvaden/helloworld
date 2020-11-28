@@ -3,15 +3,15 @@ name: Get tag
 on:
   push:
     tags:
-      - '**v*.*.*'
+#      - '**v*.*.*'
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Get Tag
+      - name: Get Tag and Version
         run: |
-          RELEASE_VERSION=${GITHUB_REF:12}
-          ENVIRONMENT=${GITHUB_REF: 10:2}
+          RELEASE_VERSION=${GITHUB_REF:10}
+          ENVIRONMENT=$RELEASE_VERSION|cut -d\- -f3
           echo $RELEASE_VERSION
           echo $ENVIRONMENT
