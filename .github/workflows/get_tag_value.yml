@@ -1,8 +1,8 @@
 name: Get tag
 
 on:
-  pull-request:
-#    tags:
+  push:
+    tags:
 #      - '**v*.*.*'
 jobs:
   test:
@@ -16,9 +16,9 @@ jobs:
           ls
           cd ..
           ls
-#          TAG=${GITHUB_REF:10}
-#          ENVIRONMENT=$(echo "$TAG"|cut -d\- -f3)
-#          RELEASE_VERSION=$(echo "$TAG"|cut -d\- -f4)
-#          echo $ENVIRONMENT
-#          echo $RELEASE_VERSION
+          TAG=${GITHUB_REF:10}
+          ENVIRONMENT=$(echo "$TAG"|cut -d\- -f3)
+          RELEASE_VERSION=$(echo "$TAG"|cut -d\- -f4)
+          echo $ENVIRONMENT
+          echo $RELEASE_VERSION
 
