@@ -2,7 +2,7 @@ name: Get tag
 
 on:
   push:
-#    tags:
+    tags:
 #      - '**v*.*.*'
 jobs:
   test:
