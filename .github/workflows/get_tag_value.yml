@@ -20,6 +20,7 @@ jobs:
           echo $den
           echo $RELEASE_VERSION
         if: env.den == 'denis'
+        run: echo "denisthebest"
       - uses: actions/checkout@v2
       - name: Get Tag and Version
         run: echo "hari"
