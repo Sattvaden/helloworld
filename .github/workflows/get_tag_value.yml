@@ -4,22 +4,14 @@ on:
   create:
     tags:
       'release-gcp-*-*.*.*'
-env:
-  TAG: ${{github.ref}}
-
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Get Tag and Version
-        run: |
-          echo before
-          echo $TAG
-          echo after
       - name: If Dev
-        if: env.TAG == 'release-gcp-dev-1.1.8'
+        if: contains(github.ref, 'dev')
         run: echo "qa"
-      - name: If Version
-        if: env.TAG == 'qa'
+      - name: If Qa
+        if: contains(github.ref, 'qa')
         run: echo "qa"
