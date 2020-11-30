@@ -16,5 +16,3 @@ jobs:
           RELEASE_VERSION=$(echo "$TAG"|cut -d\- -f4)
           echo $ENVIRONMENT
           echo $RELEASE_VERSION
-
-gi
