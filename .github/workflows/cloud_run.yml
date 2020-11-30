@@ -24,11 +24,12 @@ jobs:
       with:
         version: '290.0.1'
         service_account_key: ${{ secrets.RUN_SA_KEY }}
+        project_id: ${{ PROJECT_ID }}
 
     # Build and push image to Google Container Registry
     - name: Build
       run: |
-        gcloud config set project $PROJECT_ID
+#        gcloud config set project $PROJECT_ID
         gcloud builds submit --quiet --tag "gcr.io/$PROJECT_ID/$SERVICE_NAME:$GITHUB_SHA"
     # Deploy image to Cloud Run
     - name: Deploy
