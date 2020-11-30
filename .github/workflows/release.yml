@@ -1,8 +1,8 @@
 name: Build project
 on:
-  create:
-    tags:
-      - 'den'
+  pull_request:
+    branches:
+    - master
 
 jobs:
   build:
