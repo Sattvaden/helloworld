@@ -3,7 +3,7 @@ name: Get tag
 on:
   create:
     tags:
-      - 'release-gcp-[dev|qa|prod]-*.*.*'
+      - 'release-gcp-**-*.*.*'
 jobs:
   test:
     runs-on: ubuntu-latest
