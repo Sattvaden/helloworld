@@ -1,17 +1,16 @@
 name: Get tag
 
 on:
-  create:
+  push:
     tags:
       - 'release-gcp-*-*.*.*'
 
 env:
-  den: 'den'
+  den: 'dev'
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       - name: Get Tag and Version
         run: |
           TAG=${GITHUB_REF:10}
@@ -20,3 +19,7 @@ jobs:
           den=$ENVIRONMENT
           echo $den
           echo $RELEASE_VERSION
+        if: $den == 'dev'
+      - uses: actions/checkout@v2
+      - name: Get Tag and Version
+        run: echo "hari"
