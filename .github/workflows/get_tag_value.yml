@@ -20,5 +20,5 @@ jobs:
           echo $den
           echo $RELEASE_VERSION
       - name: If Statement
-        if: env.den == 'denis'
+        if: env.den == 'dev'
         uses: actions/checkout@v2
