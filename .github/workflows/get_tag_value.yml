@@ -3,7 +3,7 @@ name: Get tag
 on:
   create:
     tags:
-#      - '**v*.*.*'
+      - 'release-gcp-[dev|qa|prod]-\d+.\d+.\d+'
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -11,11 +11,6 @@ jobs:
       - uses: actions/checkout@v2
       - name: Get Tag and Version
         run: |
-          ls
-          cd src
-          ls
-          cd ..
-          ls
           TAG=${GITHUB_REF:10}
           ENVIRONMENT=$(echo "$TAG"|cut -d\- -f3)
           RELEASE_VERSION=$(echo "$TAG"|cut -d\- -f4)
