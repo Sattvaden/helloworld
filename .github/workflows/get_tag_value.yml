@@ -1,8 +1,7 @@
 name: Get tag
 
 on:
-  push:
-    master
+  push: master
 
 env:
   den: 'dev'
