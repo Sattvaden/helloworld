@@ -3,8 +3,7 @@ name: Get Tag Invalid
 on:
   push:
     tags:
-    - den-a-[0-9]+.[0-9]+
-    - den-b-[0-9]+.[0-9]+
+    - den-*-[0-9]+.[0-9]+
 
 jobs:
   test:
