@@ -2,11 +2,9 @@ name: Get tag
 
 on:
   push:
-    branches:
-      master
+    tags:
+      'release-gcp-*-*.*.*'
 
-env:
-  den: 'dev'
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -17,8 +15,11 @@ jobs:
           ENVIRONMENT=$(echo "$TAG"|cut -d\- -f3)
           RELEASE_VERSION=$(echo "$TAG"|cut -d\- -f4)
           den=$ENVIRONMENT
-          echo $den
+          echo ENVIRONMENT
           echo $RELEASE_VERSION
-      - name: If Statement
-        if: env.den == 'dev'
-        uses: actions/checkout@v2
+      - name: If Dev
+        if: ENVIRONMENT == 'dev'
+        run: echo "qa"
+      - name: If Version
+        if: ENVIRONMENT == 'qa'
+        run: echo "qa"
