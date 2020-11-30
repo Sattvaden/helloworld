@@ -3,7 +3,7 @@ name: Get tag
 on:
   create:
     tags:
-      - 'release-gcp-**-*.*.*'
+      - 'release-gcp-*-*.*.*'
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -17,3 +17,4 @@ jobs:
           echo $ENVIRONMENT
           echo $RELEASE_VERSION
 
+gi
