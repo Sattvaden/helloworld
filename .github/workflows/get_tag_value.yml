@@ -19,7 +19,7 @@ jobs:
           den=$ENVIRONMENT
           echo $den
           echo $RELEASE_VERSION
-        if: env.den == "dev"
+        if: env.den == 'dev'
       - uses: actions/checkout@v2
       - name: Get Tag and Version
         run: echo "hari"
