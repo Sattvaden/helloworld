@@ -14,11 +14,13 @@ jobs:
     steps:
       - name: Get Tag and Version
         run: |
-          TAG=${GITHUB_REF:10}
-          ENVIRONMENT=$(echo "$TAG"|cut -d\- -f3)
-          RELEASE_VERSION=$(echo "$TAG"|cut -d\- -f4)
+          echo "before"
+          echo $TAG
+          echo "after"
+          echo env.TAG
+          echo "end"
       - name: If Dev
-        if: env.TAG == 'release-gcp-dev-1.1.4'
+        if: env.TAG == 'release-gcp-dev-1.1.5'
         run: echo "qa"
       - name: If Version
         if: env.TAG == 'qa'
