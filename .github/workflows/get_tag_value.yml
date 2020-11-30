@@ -2,8 +2,7 @@ name: Get tag
 
 on:
   push:
-    tags:
-      - 'release-gcp-*-*.*.*'
+    master
 
 env:
   den: 'dev'
