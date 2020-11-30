@@ -1,9 +1,9 @@
 name: Get Tag Den
 
 on:
-  create:
+  push:
     tags:
-      - 'den'
+      - 'denis'
 
 jobs:
   test:

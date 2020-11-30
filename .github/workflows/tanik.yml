@@ -1,9 +1,9 @@
 name: Get Tag Tanik
 
 on:
-  create:
+  push:
     tags:
-      - 'tanik'
+      - 'tatiana'
 
 jobs:
   test:
