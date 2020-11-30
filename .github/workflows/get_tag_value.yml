@@ -4,6 +4,9 @@ on:
   create:
     tags:
       'release-gcp-*-*.*.*'
+env:
+  ENVIRONMENT: ''
+  RELEASE_VERSION: ''
 
 jobs:
   test:
@@ -14,9 +17,6 @@ jobs:
           TAG=${GITHUB_REF:10}
           ENVIRONMENT=$(echo "$TAG"|cut -d\- -f3)
           RELEASE_VERSION=$(echo "$TAG"|cut -d\- -f4)
-          den=$ENVIRONMENT
-          echo ENVIRONMENT
-          echo $RELEASE_VERSION
       - name: If Dev
         if: ENVIRONMENT == 'dev'
         run: echo "qa"
