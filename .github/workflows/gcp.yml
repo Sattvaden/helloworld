@@ -1,9 +1,9 @@
-name: Get Tag Tanik
+name: Get Tag GCP
 
 on:
   push:
     tags:
-      - 'tatiana'
+      - 'release-gcp-*-*.*.*'
 
 jobs:
   test:

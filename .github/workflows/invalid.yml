@@ -1,9 +1,9 @@
-name: Get Tag Den
+name: Get Tag Invalid
 
 on:
   push:
     tags:
-      - 'denis'
+      - 'release-gcp-*.*.*'
 
 jobs:
   test:
