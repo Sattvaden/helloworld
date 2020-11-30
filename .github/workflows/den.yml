@@ -1,4 +1,4 @@
-name: Get Tag Test
+name: Get Tag Den
 
 on:
   create:
@@ -9,5 +9,5 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Test
+      - name: Test 
         run: echo Den

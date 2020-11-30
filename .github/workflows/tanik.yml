@@ -1,13 +1,13 @@
-name: Get Tag Test
+name: Get Tag Tanik
 
 on:
   create:
     tags:
-      - 'den'
+      - 'tanik'
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Test 
-        run: echo Den
+      - name: Test
+        run: echo tanik
