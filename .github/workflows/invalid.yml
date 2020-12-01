@@ -20,10 +20,9 @@ jobs:
           tanik=$(echo $tag|cut -d\- -f3)
           echo $tanik
       - name: checkout node
-        working-directory: ./src/node_project
         uses: actions/setup-node@v1
         with:
           node-version: '14'
-      - name: Run react
-        working-directory: ./src/node_project
-        run: yarn start
+        run: |
+          cd src/node_project
+          yarn start
