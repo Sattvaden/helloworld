@@ -6,11 +6,15 @@ on:
     - den-tanik-[0-9]+.[0-9]+
 
 env:
-  tag: ${{ github.ref }}
+  environ: ${{ github.ref }}|cut -d\- -f2
+  version: ${{ github.ref }}|cut -d\- -f3
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
       - name: Set Environ
-        run: echo $tag|cut -d\- -f2
+        run: |
+          echo $environ
+          echo $version
+
