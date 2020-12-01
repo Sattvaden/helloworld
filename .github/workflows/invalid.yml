@@ -13,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set Environ
+        working-directory: ./src/main
         run: |
           tanik=$(echo $tag|cut -d\- -f3)
           echo $tanik
+          ls
