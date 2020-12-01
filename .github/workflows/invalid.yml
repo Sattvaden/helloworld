@@ -14,7 +14,7 @@ jobs:
     steps:
       - name: Set Environ
         run: |
-          $environ = 'tanik'
+          env.environ = 'tanik'
       - name: Print Environ
         run: |
           echo $environ
