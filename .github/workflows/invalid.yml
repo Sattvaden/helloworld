@@ -18,4 +18,9 @@ jobs:
         run: |
           tanik=$(echo $tag|cut -d\- -f3)
           echo $tanik
-          ls
+      - name: Start Node_project
+        working-directory: ./src/node_project
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14'
+          - run: yarn start
