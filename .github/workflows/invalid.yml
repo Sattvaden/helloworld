@@ -23,5 +23,5 @@ jobs:
         with:
           node-version: '14'
       - run: |
-          cd src/node_project
+          cd src/main/node_project
           node app.js
