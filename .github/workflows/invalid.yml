@@ -25,4 +25,4 @@ jobs:
           node-version: '14'
       - name: Run react
         working-directory: ./src/node_project
-        run: yarn start
+        run: ls
