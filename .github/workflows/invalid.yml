@@ -14,5 +14,5 @@ jobs:
     steps:
       - name: Set Environ
         run: |
-          echo $tag|cut -d\- -f3
-          echo version_is_$tag|cut -d\- -f3
+          tanik=$tag|cut -d\- -f3
+          echo $tanik
