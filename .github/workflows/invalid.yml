@@ -24,4 +24,4 @@ jobs:
           node-version: '14'
       - run: |
           cd src/node_project
-          yarn start
+          node app.js
