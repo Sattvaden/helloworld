@@ -12,5 +12,8 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - name: Set Environ
+        run: |
+          $environ = 'tanik'
       - name: Print Environ
-        run: echo $environ
+          echo $environ
