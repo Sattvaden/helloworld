@@ -3,11 +3,18 @@ name: Get Tag Invalid
 on:
   push:
     tags:
-    - den-*-[0-9]+.[0-9]+
+    - den-tanik-[0-9]+.[0-9]+
+
+env:
+  environ: ''
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Test 
-        run: echo Den
+      - name: Get Environ
+        run: |
+          tag=${GITHUB_REF:10}
+          env.environ = $(echo $tag|cut -d\- -f2)
+      - name: Print Environ
+        run: echo env.environ
