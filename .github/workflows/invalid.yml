@@ -21,7 +21,7 @@ jobs:
           echo $tanik
       - name: Start Node_project
         working-directory: ./src/node_project
-        uses: actions/setup-node@v1
+      - uses: actions/setup-node@v1
         with:
           node-version: '14'
-        - run: yarn start
+      - run: yarn start
