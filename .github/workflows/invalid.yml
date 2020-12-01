@@ -23,6 +23,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '14'
-        run: |
-          cd src/node_project
-          yarn start
+        - run: |
+            cd src/node_project
+            yarn start
