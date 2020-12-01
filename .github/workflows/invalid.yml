@@ -16,4 +16,5 @@ jobs:
         run: |
           $environ = 'tanik'
       - name: Print Environ
+        run: |
           echo $environ
