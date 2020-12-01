@@ -6,8 +6,7 @@ on:
     - den-tanik-[0-9]+.[0-9]+
 
 env:
-  environ: ${{ ${{ github.ref }} |cut -d\- -f2 }}
-  version: ${{ ${{ github.ref }} |cut -d\- -f3 }}
+  tag: ${{ github.ref }}|cut -d\- -f2
 
 jobs:
   test:
@@ -15,6 +14,5 @@ jobs:
     steps:
       - name: Set Environ
         run: |
-          echo $environ
+          version = $(echo $tag|cut -d\- -f3)
           echo $version
-
