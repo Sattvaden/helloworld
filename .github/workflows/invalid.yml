@@ -19,10 +19,9 @@ jobs:
         run: |
           tanik=$(echo $tag|cut -d\- -f3)
           echo $tanik
-      - name: checkout node
-        uses: actions/setup-node@v1
+      - uses: actions/setup-node@v1
         with:
           node-version: '14'
-        - run: |
-            cd src/node_project
-            yarn start
+      - run: |
+          cd src/node_project
+          yarn start
