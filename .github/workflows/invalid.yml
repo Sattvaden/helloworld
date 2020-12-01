@@ -13,4 +13,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set Environ
-        run: echo $tag
+        run: echo $tag|cut -d\- -f2
