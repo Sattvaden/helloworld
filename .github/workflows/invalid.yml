@@ -13,4 +13,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print Environ
-        run: echo env.environ
+        run: echo $environ
