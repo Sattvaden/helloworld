@@ -19,3 +19,4 @@ jobs:
         working-directory: ./src/main
         run: |
           echo key - $key
+          echo '$key' | base64 -d
