@@ -13,10 +13,20 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout project
+      - name: Checkout Project
         uses: actions/checkout@v2
       - name: Set Environ
         working-directory: ./src/main
         run: |
-          echo key - $key
-          echo '$key' | base64 -d
+          echo $key
+          tanik=$(echo $tag|cut -d\- -f3)
+          echo $tanik
+      - name: Checkout Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14'
+
+      - name: Run App
+        run: |
+          cd src/main/node_project
+          node app.js
