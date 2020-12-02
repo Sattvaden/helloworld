@@ -8,8 +8,8 @@ on:
 env:
   tag: ${{ github.ref }}
   key: ${{ secrets.RUN_SA_KEY }}
-  kafka_dev: kdev
-  kafka_qa: kqa
+  kafka_dev: 10.15.23.35
+  kafka_qa: 19.32.85.22
 
 jobs:
   test:
@@ -32,7 +32,7 @@ jobs:
         run: |
           ENVIRONMENT=$(echo $tag|cut -d\- -f2)
           echo "Setting up environment: $ENVIRONMENT"
-          if [ $ENVIRONMENT == 'dev' ]; then
+          if [ $ENVIRONMENT == 'tanik' ]; then
           sed -i '' 's/ip_address/$kafka_dev/g' src/main/resources/application.yaml
           elif [ $ENVIRONMENT == 'qa' ]; then
           sed -i '' 's/ip_address/$kafka_qa/g' src/main/resources/application.yaml
