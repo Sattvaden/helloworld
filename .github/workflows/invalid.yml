@@ -30,7 +30,7 @@ jobs:
 
       - name: Run App
         run: |
-          ENVIRONMENT=$(echo $tag|cut -d\- -f3)
+          ENVIRONMENT=$(echo $tag|cut -d\- -f2)
           echo "Setting up environment: $ENVIRONMENT"
           if [ $ENVIRONMENT == 'dev' ]; then
           sed -i '' 's/ip_address/$kafka_dev/g' src/main/resources/application.yaml
