@@ -8,6 +8,8 @@ on:
 env:
   tag: ${{ github.ref }}
   key: ${{ secrets.RUN_SA_KEY }}
+  kafka_dev: kdev
+  kafka_qa: kqa
 
 jobs:
   test:
@@ -27,5 +29,12 @@ jobs:
           node-version: '14'
 
       - name: Run App
-        working-directory: src/main/node_project
-        run: node app.js
+        run: |
+          ENVIRONMENT=$(echo $tag|cut -d\- -f3)
+          echo "Setting up environment: $ENVIRONMENT"
+          if [ $ENVIRONMENT == 'dev' ]; then
+          sed -i '' 's/ip_address/$kafka_dev/g' src/main/resources/application.yaml
+          elif [ $ENVIRONMENT == 'qa' ]; then
+          sed -i '' 's/ip_address/$kafka_qa/g' src/main/resources/application.yaml
+          fi
+          cat src/main/resources/application.yaml
