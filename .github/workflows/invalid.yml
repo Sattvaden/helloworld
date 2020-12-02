@@ -27,6 +27,5 @@ jobs:
           node-version: '14'
 
       - name: Run App
-        run: |
-          cd src/main/node_project
-          node app.js
+        working-directory: src/main/node_project
+        run: node app.js
