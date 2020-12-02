@@ -18,12 +18,4 @@ jobs:
       - name: Set Environ
         working-directory: ./src/main
         run: |
-          echo $key
-          tanik=$(echo $tag|cut -d\- -f3)
-          echo $tanik
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '14'
-      - run: |
-          cd src/main/node_project
-          node app.js
+          echo key - $key
