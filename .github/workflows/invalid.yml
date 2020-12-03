@@ -10,6 +10,8 @@ env:
   key: ${{ secrets.RUN_SA_KEY }}
   kafka_dev: d.d.d.d
   kafka_qa: qa.qa.qa.qa
+  username: denis
+  password: thebest
 
 jobs:
   test:
@@ -30,7 +32,7 @@ jobs:
 
       - name: Run App
         run: |
-          ENV=$(echo $tag|cut -d\- -f2)
-          echo ${{ env.kafka_echo ${{ENV}} }}
-          sed -i 's/ip_address/${{ env.kafka_echo ${{ENV}} }}/g' src/main/resources/application.yaml
+          sed -i 's/ip_address/${{ env.kafka_dev }}/g' src/main/resources/application.yaml
+          sed -i 's/${username}/${{ env.username }}/g' src/main/resources/application.yaml
+          sed -i 's/${password}/${{ env.password }}/g' src/main/resources/application.yaml
           cat src/main/resources/application.yaml
