@@ -32,8 +32,8 @@ jobs:
         run: |
           ENVIRONMENT=$(echo $tag|cut -d\- -f2)
           if [ $ENVIRONMENT == 'tanik' ]; then
-          sed -i 's/ip_address/$(echo $kafka_dev)/g' src/main/resources/application.yaml
+          sed -i 's/ip_address/${{ env.kafka_dev }}/g' src/main/resources/application.yaml
           elif [ $ENVIRONMENT == 'qa' ]; then
-          sed -i '' 's/ip_address/$(echo $kafka_qa)/g' src/main/resources/application.yaml
+          sed -i '' 's/ip_address/${{ env.kafka_qa }}/g' src/main/resources/application.yaml
           fi
           cat src/main/resources/application.yaml
