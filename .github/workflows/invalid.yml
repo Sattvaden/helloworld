@@ -31,6 +31,6 @@ jobs:
       - name: Run App
         run: |
           ENV=$(echo $tag|cut -d\- -f2)
-          echo ${{ env.kafka_$(echo $ENV) }}
-          sed -i 's/ip_address/${{ env.kafka_$(echo $ENV) }}/g' src/main/resources/application.yaml
+          echo ${{ env.kafka_echo $ENV }}
+          sed -i 's/ip_address/${{ env.kafka_echo $ENV }}/g' src/main/resources/application.yaml
           cat src/main/resources/application.yaml
