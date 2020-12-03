@@ -32,7 +32,32 @@ jobs:
 
       - name: Run App
         run: |
-          sed -i 's/ip_address/${{ env.kafka_dev }}/g' src/main/resources/application.yaml
-          sed -i 's/${username}/${{ env.username }}/g' src/main/resources/application.yaml
-          sed -i 's/${secret}/${{ env.secret }}/g' src/main/resources/application.yaml
+          var=kafka_$(echo $tag|cut -d\- -f3)"
+          echo var is - $var
+          echo sed -i 's/ip_address/'"${!var}"'/g' src/main/resources/application.yaml
+          #sed -i "s/${username}/$usernamebash/g" src/main/resources/application.yaml
+          #sed -i "s/${username}/${{ env.username }}/g" src/main/resources/application.yaml
+          #sed -i 's/${secret}/${{ env.secret }}/g' src/main/resources/application.yaml
           cat src/main/resources/application.yaml
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
