@@ -29,9 +29,8 @@ jobs:
           node-version: '14'
 
       - name: Run App
-        run: |
+        run: | -
           ENVIRONMENT=$(echo $tag|cut -d\- -f2)
-          echo "Setting up environment: $ENVIRONMENT"
           if [ $ENVIRONMENT == 'tanik' ]; then
           sed -i 's/ip_address/${{kafka_dev}}/g' src/main/resources/application.yaml
           elif [ $ENVIRONMENT == 'qa' ]; then
