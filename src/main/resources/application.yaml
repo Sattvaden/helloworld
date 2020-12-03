@@ -1,3 +1,3 @@
 spring:
   redis:
-    host: ip_address username=${username} password=${password}
+    host: ip_address username=${username} password=${secret}

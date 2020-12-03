@@ -11,7 +11,7 @@ env:
   kafka_dev: d.d.d.d
   kafka_qa: qa.qa.qa.qa
   username: denis
-  password: thebest
+  secret: thebest
 
 jobs:
   test:
@@ -34,5 +34,5 @@ jobs:
         run: |
           sed -i 's/ip_address/${{ env.kafka_dev }}/g' src/main/resources/application.yaml
           sed -i 's/${username}/${{ env.username }}/g' src/main/resources/application.yaml
-          sed -i 's/${password}/${{ env.password }}/g' src/main/resources/application.yaml
+          sed -i 's/${secret}/${{ env.secret }}/g' src/main/resources/application.yaml
           cat src/main/resources/application.yaml
