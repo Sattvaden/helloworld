@@ -8,8 +8,8 @@ on:
 env:
   tag: ${{ github.ref }}
   key: ${{ secrets.RUN_SA_KEY }}
-  kafka_dev: 10.15.23.35
-  kafka_qa: 19.32.85.22
+  kafka_dev: d.d.d.d
+  kafka_qa: qa.qa.qa.qa
 
 jobs:
   test:
@@ -30,10 +30,7 @@ jobs:
 
       - name: Run App
         run: |
-          ENVIRONMENT=$(echo $tag|cut -d\- -f2)
-          if [ $ENVIRONMENT == 'tani' ]; then
-          sed -i 's/ip_address/${{ env.kafka_dev }}/g' src/main/resources/application.yaml
-          elif [ $ENVIRONMENT == 'tanik' ]; then
-          sed -i 's/ip_address/${{ env.kafka_qa }}/g' src/main/resources/application.yaml
-          fi
+          ENV=$(echo $tag|cut -d\- -f2)
+          echo ${{ env.kafka_$ENV }}
+          sed -i 's/ip_address/${{ env.kafka_$ENV }}/g' src/main/resources/application.yaml
           cat src/main/resources/application.yaml
