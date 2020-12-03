@@ -36,7 +36,9 @@ jobs:
           echo var is - $var
           echo sed -i 's/ip_address/'"${!var}"'/g' src/main/resources/application.yaml
           cat src/main/resources/application.yaml
-
+          #sed -i "s/${username}/$usernamebash/g" src/main/resources/application.yaml
+          #sed -i "s/${username}/${{ env.username }}/g" src/main/resources/application.yaml
+          #sed -i 's/${secret}/${{ env.secret }}/g' src/main/resources/application.yaml
 
 
 
