@@ -34,6 +34,6 @@ jobs:
           if [ $ENVIRONMENT == 'tani' ]; then
           sed -i 's/ip_address/${{ env.kafka_dev }}/g' src/main/resources/application.yaml
           elif [ $ENVIRONMENT == 'tanik' ]; then
-          sed -i '' 's/ip_address/${{ env.kafka_qa }}/g' src/main/resources/application.yaml
+          sed -i 's/ip_address/${{ env.kafka_qa }}/g' src/main/resources/application.yaml
           fi
           cat src/main/resources/application.yaml
