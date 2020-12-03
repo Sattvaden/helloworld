@@ -32,7 +32,7 @@ jobs:
 
       - name: Run App
         run: |
-          var="kafka_$(echo $tag|cut -d\- -f3)"
+          var="kafka_$(echo $tag|cut -d\- -f2)"
           echo var is - $var
           echo sed -i 's/ip_address/'"${!var}"'/g' src/main/resources/application.yaml
           cat src/main/resources/application.yaml
