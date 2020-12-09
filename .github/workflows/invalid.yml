@@ -3,15 +3,12 @@ name: Get Tag Invalid
 on:
   push:
     tags:
-    - den-*-[0-9]+.[0-9]+
+    - den-dev-[0-9]+.[0-9]+
 
 env:
   tag: ${{ github.ref }}
   key: ${{ secrets.RUN_SA_KEY }}
-  kafka_dev: d.d.d.d
-  kafka_qa: qa.qa.qa.qa
-  username: denis
-  secret: thebest
+  ENVIRONMENT: $(echo $tag|cut -d\- -f2)
 
 jobs:
   test:
@@ -19,26 +16,10 @@ jobs:
     steps:
       - name: Checkout Project
         uses: actions/checkout@v2
-      - name: Set Environ
-        working-directory: ./src/main
-        run: |
-          echo $key
-          tanik=$(echo $tag|cut -d\- -f3)
-          echo $tanik
-      - name: Checkout Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: '14'
 
-      - name: Run App
+      - name: Set Environ
         run: |
-          var="kafka_$(echo $tag|cut -d\- -f2)"
-          echo var is - $var
-          sed -i 's/ip_address/'"${!var}"'/g' src/main/resources/application.yaml
-          cat src/main/resources/application.yaml
-          #sed -i "s/${username}/$usernamebash/g" src/main/resources/application.yaml
-          #sed -i "s/${username}/${{ env.username }}/g" src/main/resources/application.yaml
-          #sed -i 's/${secret}/${{ env.secret }}/g' src/main/resources/application.yaml
+          echo environment $ENVIRONMENT
 
 
 
