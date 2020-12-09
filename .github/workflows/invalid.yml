@@ -8,7 +8,7 @@ on:
 env:
   tag: ${{ github.ref }}
   key: ${{ secrets.RUN_SA_KEY }}
-  ENVIRONMENT: $(echo $tag|cut -d\- -f2)
+  ENVIRONMENT: ${{ $(echo $tag|cut -d\- -f2) }}
 
 jobs:
   test:
